@@ -1,0 +1,21 @@
+{
+  "name": "RBT-DB",
+  "version": "1.0.0",
+  "description": "My magnificent Nuxt.js project",
+  "author": "sergeant118",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cookie-universal-nuxt": "^2.1.4",
+    "firebase": "^7.15.1",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1"
+  }
+}
