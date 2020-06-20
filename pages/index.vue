@@ -5,6 +5,7 @@
       <h1 class="title">リピボ級レンタルDB</h1>
       <h2 class="subtitle">レンタルパーティで充実したリピボ級ライフを</h2>
       <n-link to="rental" class="button--grey">レンタルパーティを見る</n-link>
+      <a href="https://github.com/sergeant118/RBT-DB" class="button--grey" target="_blank">Github</a>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <nav>
       <n-link to="/" class="button--grey">Home</n-link>
       <n-link to="about" class="button--grey">About</n-link>
@@ -39,5 +39,10 @@
 
 .links {
   padding-top: 15px;
+}
+
+.bg {
+  padding: 0.5em 0.75em;
+  background-color: #b9d5f5;
 }
 </style>

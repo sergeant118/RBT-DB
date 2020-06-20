@@ -53,6 +53,7 @@ html {
   border-radius: 4px;
   border: 1px solid #35495e;
   color: #35495e;
+  background-color: #ffffff;
   text-decoration: none;
   padding: 5px 10px;
   margin-left: 10px;

@@ -75,39 +75,43 @@ export default {
   computed: {
     select_border: function() {
       return function(window_width, isMyTeam) {
-        //ログインしてなかったら汎用
-        var user = this.$store.getters["user"];
-        if (user) {
-          if (!user.login) {
-            if (window_width > 1286) return "box_big";
-            else return "box_small";
+        var isBig = window_width > 1286;
+
+        //自分のレンタルチーム
+        if (isMyTeam) {
+          if (isBig) {
+            return "box_big_mine";
+          } else {
+            return "box_small_mine";
           }
         } else {
-          if (window_width > 1286) return "box_big";
-          else return "box_small";
-        }
-
-        if (window_width > 1286) {
-          if (isMyTeam) return "box_big_mine";
-          else return "box_big";
-        } else {
-          if (isMyTeam) return "box_small_mine";
-          else return "box_small";
+          if (isBig) {
+            if (this.isAvailable) {
+              return "box_big";
+            } else {
+              return "box_big_end";
+            }
+          } else {
+            if (this.isAvailable) {
+              return "box_small";
+            } else {
+              return "box_small_end";
+            }
+          }
         }
       };
     },
     select_border_title: function() {
       return function(isMyTeam) {
-        //ログインしてなかったら汎用
-        var user = this.$store.getters["user"];
-        if (user) {
-          if (!user.login) return "box-title";
+        if (isMyTeam) {
+          return "box-title_mine";
         } else {
-          return "box-title";
+          if (this.isAvailable) {
+            return "box-title";
+          } else {
+            return "box-title_end";
+          }
         }
-
-        if (isMyTeam) return "box-title_mine";
-        else return "box-title";
       };
     },
     check_size: function() {
@@ -175,6 +179,19 @@ export default {
   padding: 10px 10px;
   border: solid 3px #ce7262;
 }
+.box_small_end {
+  position: relative;
+  margin: 2em 20px;
+  padding: 10px 10px;
+  border: solid 3px #636363;
+}
+.box_big_end {
+  width: 1233px;
+  position: relative;
+  margin: 2em 20px;
+  padding: 10px 10px;
+  border: solid 3px #636363;
+}
 .box-title {
   position: absolute;
   display: inline-block;
@@ -199,6 +216,20 @@ export default {
   line-height: 25px;
   font-size: 17px;
   background: #ce7262;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+.box-title_end {
+  position: absolute;
+  display: inline-block;
+  top: -27px;
+  left: -3px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  background: #636363;
   color: #ffffff;
   font-weight: bold;
   border-radius: 5px 5px 0 0;
