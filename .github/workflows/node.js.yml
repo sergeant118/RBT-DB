@@ -24,10 +24,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Create .env file
+      run: echo "${{ secrets.ENV_PROD }}" > .env
     - name: npm install, generate
       run: |
            npm install
-           npm install cookie-universal-nuxt firebase @nuxtjs/dotenv
            npm run generate --if-present
     - name: deploy to Firebase Hosting
       uses: w9jds/firebase-action@master
